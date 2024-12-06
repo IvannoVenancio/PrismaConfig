@@ -1,8 +1,14 @@
 <h1>Cadastro de Utilizador</h1>
-
+<a href="/user_type">User Type</a>
 <form action="/create_user" method="post">
     <input type="text" name="username" placeholder="UserName" ><br>
     <input type="password" name="senha" placeholder="Senha"><br>
+    <select name="user_type" id="">
+        <option value="">Selecione...</option>
+        {{#each userType}}
+        <option value="{{id}}">{{type}}</option>
+        {{/each}}
+    </select> <br>
 
     <input type="submit" value="Cadastrar">
 </form>

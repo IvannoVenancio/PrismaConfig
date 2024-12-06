@@ -1,0 +1,20 @@
+<h1>Tipo de Utilizador</h1>
+
+<form action="/user_type" method="post">
+    <input type="text" name="type" placeholder="Type" ><br>
+    
+    <input type="submit" value="Cadastrar">
+</form>
+
+<table>
+    <tr>
+        <td>#</td>
+        <td>Nome</td>
+    </tr>
+    {{#each userType}}
+    <tr>
+        <td>{{id}}</td>
+        <td>{{type}}</td>
+    </tr>
+    {{/each}}
+</table>

@@ -17,8 +17,10 @@ model User{
   id Int @id @default(autoincrement())
   username String @db.VarChar(50)
   senha String @db.VarChar(100)
+  user_type Int
   created_at DateTime @default(now()) @db.Timestamp(6)
   update_at DateTime @updatedAt
+  UserType UserType @relation("user_type_user", fields: [user_type], references: [id])
 
   @@map("users")
 }
@@ -30,4 +32,15 @@ model Cliente{
   update_at DateTime @updatedAt
 
   @@map("clientes")
+}
+
+model UserType {
+  id Int @id @default(autoincrement())
+  type String @db.VarChar(30)
+  created_at DateTime @default(now()) @db.Timestamp(6)
+  update_at DateTime @updatedAt
+  User  User[] @relation("user_type_user")
+
+  @@map("user_type")
+
 }
